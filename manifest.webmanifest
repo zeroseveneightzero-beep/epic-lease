@@ -1,0 +1,9 @@
+{
+  "name": "EPIC LEASE — AI Leasing Command Center",
+  "short_name": "EPIC LEASE",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#07101d",
+  "theme_color": "#0b1220",
+  "description": "AI-powered condo leasing operations command center."
+}
