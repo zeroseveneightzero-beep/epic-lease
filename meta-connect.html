@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EPIC LEASE — Connect Facebook Page</title>
+</head>
+<body>
+  <h2>EPIC LEASE — Facebook Page Scout</h2>
+
+  <button id="connect">Connect Facebook Page</button>
+
+  <script>
+    const META_APP_ID = "3770910663047116";
+    const CONFIG_ID = "1788504645907031";
+
+    const REDIRECT_URI =
+      "https://hcrkktwvyxspcyexvzes.supabase.co/functions/v1/epic-lease-meta-oauth-callback";
+
+    document.getElementById("connect").addEventListener("click", () => {
+      const state = crypto.randomUUID();
+
+      sessionStorage.setItem("epic_lease_oauth_state", state);
+
+      const params = new URLSearchParams({
+        client_id: META_APP_ID,
+        config_id: CONFIG_ID,
+        redirect_uri: REDIRECT_URI,
+        response_type: "code",
+        override_default_response_type: "true",
+        state: state
+      });
+
+      window.location.href =
+        "https://www.facebook.com/v26.0/dialog/oauth?" +
+        params.toString();
+    });
+  </script>
+</body>
+</html>
